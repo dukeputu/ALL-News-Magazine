@@ -21,6 +21,8 @@ const setAllMenu = async () => {
     });
 
 }
+
+
 const menuId = async (id, catagoryName) => {
     // console.log("newsBloog",catagoryName);
     //  console.log(id);
@@ -43,7 +45,7 @@ const newsBloog = (blog, catagoryName) => {
 
         const div = document.createElement('div');
 
-        const { thumbnail_url, title, details, author, total_view } = news;
+        const { thumbnail_url, title, details, author, total_view, _id } = news;
         div.classList.add('item');
         div.innerHTML = `
         <div class="utf_post_block_style utf_post_float_half clearfix">
@@ -64,7 +66,7 @@ const newsBloog = (blog, catagoryName) => {
         </ul> </div>
          </div>
           <p>${details.length > 100 ? details.slice(0, 250) + '...' : details}</p>
-          <button class="btn btn-primary">More</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" onclick="showModal('${_id}')">More</button>
         </div>
       </div>
         `
@@ -72,6 +74,44 @@ const newsBloog = (blog, catagoryName) => {
 
         // newsid.innerHTML = '';
     })
+
+}
+
+
+const showModal = async (ids) => {
+    // console.log("newsBloog",catagoryName);
+    //  console.log(id);
+    const url = `https://openapi.programming-hero.com/api/news/${ids}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    modal(data.data[0]);
+    // console.log(data.data[0].title);
+
+}
+
+
+
+const modal = (data) => {
+    // console.log('showModal', data.title);
+const {title,image_url, details,}=data;
+    const modalCOntent = document.getElementById('modal-content');
+    modalCOntent.innerHTML = `
+            <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title text-center" id="myModalLabel">${title}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <img class="img-fluid" src="${image_url}"
+            alt="" /> </a>
+            <p>${details}</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+`;
+
 
 }
 
