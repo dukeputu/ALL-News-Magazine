@@ -39,13 +39,20 @@ const newsBloog = (blog, catagoryName) => {
     itams.innerText = blog.length;
     const newsid = document.getElementById('news');
     newsid.textContent = '';
-
+    const notFound = document.getElementById('not-found');
+    notFound.textContent='';
+    if (blog.length === 0) {
+        // console.log('foundP roducta');
+        notFound.innerHTML = `<h2 class="text-center text-primary">Sorry No News</h2>`
+        return;
+    }
+    
     blog.forEach((news) => {
         // console.log(news);
 
         const div = document.createElement('div');
 
-        const { thumbnail_url, title, details, author, total_view, _id } = news;
+        const { thumbnail_url, title, details, author, total_view, _id, image_url } = news;
         div.classList.add('item');
         div.innerHTML = `
         <div class="utf_post_block_style utf_post_float_half clearfix">
@@ -55,7 +62,7 @@ const newsBloog = (blog, catagoryName) => {
         <div class="utf_post_content">
           <h2 class="utf_post_title"> <a href="#">${title}</a> </h2>
           <div class="utf_post_meta"> <span class="utf_post_author"><img class="img-fluid author-img" src="${author.img}"
-          alt="" /> <a href="#">${author.name}</a></span> <span class="utf_post_date"><i class="fa fa-clock-o"></i> ${author.published_date.slice(0, 11)}</span> </br>
+          alt="" /> <a href="#">${author.name}</a></span> <span class="utf_post_date"><i class="fa fa-clock-o"></i> ${author?.published_date.slice(0, 11)}</span> </br>
           <div class="d-flex"> <span class="utf_post_date"><i class="fa fa-eye"></i> ${total_view}</span> 
           <ul class="d-flex ul-class">
           <li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -65,7 +72,7 @@ const newsBloog = (blog, catagoryName) => {
           <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
         </ul> </div>
          </div>
-          <p>${details.length > 100 ? details.slice(0, 250) + '...' : details}</p>
+          <p>${details.length > 100 ? details.slice(0, 180) + '...' : details}</p>
           <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" onclick="showModal('${_id}')">More</button>
         </div>
       </div>
@@ -93,7 +100,7 @@ const showModal = async (ids) => {
 
 const modal = (data) => {
     // console.log('showModal', data.title);
-const {title,image_url, details,}=data;
+    const { title, image_url, details, } = data;
     const modalCOntent = document.getElementById('modal-content');
     modalCOntent.innerHTML = `
             <div class="modal-content">
@@ -111,7 +118,6 @@ const {title,image_url, details,}=data;
             </div>
             </div>
 `;
-
 
 }
 

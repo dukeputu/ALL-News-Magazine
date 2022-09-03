@@ -1350,14 +1350,6 @@ ul.nav li.dropdown .utf_dropdown_menu li.utf_dropdown_submenu:hover .utf_dropdow
 }
 
 
-
-
-
-
-
-
-
-
 /* More news
 ================================================== */
 .utf_post_block_style.utf_post_float_half .utf_post_thumb {
@@ -1406,7 +1398,7 @@ ul.nav li.dropdown .utf_dropdown_menu li.utf_dropdown_submenu:hover .utf_dropdow
 	right: 25px;
 	bottom: 25px;
 	z-index: 10;
-	-webkit-backface-visibility: hidden;
+	
 }
 #back-to-top.affix {
 	bottom: 54px;
@@ -1444,3 +1436,6 @@ ul.nav li.dropdown .utf_dropdown_menu li.utf_dropdown_submenu:hover .utf_dropdow
 	color: #ec0000;
 }
 
+.text-primary {
+	color: #ec0000 !important;
+}
