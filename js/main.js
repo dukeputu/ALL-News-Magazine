@@ -1,4 +1,6 @@
 
+//fetch catagoryNames from the database
+
 const loadAllProduct = async () => {
     try {
         const res = await fetch('https://openapi.programming-hero.com/api/news/categories');
@@ -14,6 +16,8 @@ const loadAllProduct = async () => {
 }
 
 
+
+//setAllMenu
 const setAllMenu = async () => {
     const datas = await loadAllProduct();
     // console.log(datas);
@@ -32,7 +36,7 @@ const setAllMenu = async () => {
 
 
 
-
+//get id from onclick="menuId('${category_id}','${category_name}')"
 const menuId = async (id, catagoryName) => {
     // console.log("newsBloog",catagoryName);
     try {
@@ -40,50 +44,49 @@ const menuId = async (id, catagoryName) => {
         const res = await fetch(url);
         const data = await res.json();
         newsBloog(data.data, catagoryName);
-
     }
     catch (error) {
         console.log(error);
     }
-    // const loder = document.getElementById('loder');
-    // loder.classList.add('d-none');
 }
 
+//get All blog objects from  newsBloog(data.data, catagoryName);
 const newsBloog = (blog, catagoryName) => {
     // console.log(blog);
-    //https://stackoverflow.com/questions/54623130/javascript-sort-an-array-of-objects-by-a-numeric-property-in-each-object
+
+    //sort by total_view count https://stackoverflow.com/questions/54623130/javascript-sort-an-array-of-objects-by-a-numeric-property-in-each-object
     blog.sort((a, b) => b.total_view - a.total_view)
     //https://stackoverflow.com/questions/54623130/javascript-sort-an-array-of-objects-by-a-numeric-property-in-each-object
 
-
-
-
+    // set number of news hedlines innerText
     const itams = document.getElementById('itams')
     itams.innerText = blog.length;
 
-
+    // set category-name of news hedlines innerText
     const catagoryNames = document.getElementById('category-name')
     catagoryNames.innerText = catagoryName;
-
+    //get id item list
     const newsid = document.getElementById('news');
+    //clear old datas textContent
     newsid.textContent = '';
 
+    // set not-found  innerHtml
     const notFound = document.getElementById('not-found');
     notFound.textContent = '';
-
+    // set not-found  innerHtml
     if (blog.length === 0) {
         // console.log('foundP roducta');
         notFound.innerHTML = `<h2 class="text-center text-primary">Sorry No News</h2>`
         return;
     }
-
+    // loop all array of objects and createElement element with name and value and appendChild  
     blog.forEach((news) => {
         // console.log(news);
 
         const div = document.createElement('div');
-
+        // data disstarter foreach
         const { thumbnail_url, title, details, author, total_view, _id, image_url } = news;
-        // const sort = total_view.sort
+
         div.classList.add('item');
 
         div.innerHTML = `
@@ -115,14 +118,14 @@ const newsBloog = (blog, catagoryName) => {
         `
         newsid.appendChild(div);
 
-        // newsid.innerHTML = '';
+
     })
 
 }
 
 
 
-
+// show modal dialog onclick="showModal('${_id}')"
 const showModal = async (ids) => {
     // console.log("newsBloog",catagoryName);
     //  console.log(id);
@@ -141,7 +144,7 @@ const showModal = async (ids) => {
 }
 
 
-
+// show modal dialog    with title and message content
 const modal = (data) => {
     // console.log('showModal', data.title);
     const { title, image_url, details, author, total_view, } = data;
@@ -168,7 +171,8 @@ const modal = (data) => {
 
 }
 
-
+// call function for data load All menu
 setAllMenu();
 
+// call function for data loadAllitem
 menuId('01', 'Breaking News');

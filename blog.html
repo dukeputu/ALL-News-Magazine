@@ -166,22 +166,34 @@
                       <strong>.map()</strong> The map() method creates a new array populated with the results of calling
                       a provided function on every element in the calling array.
                       <br>
-                      map calls a provided callbackFn function once for each element in an array, in order, and constructs a new array from the results. callbackFn is invoked only for indexes of the array which have assigned values (including undefined).
+                      map calls a provided callbackFn function once for each element in an array, in order, and
+                      constructs a new array from the results. callbackFn is invoked only for indexes of the array which
+                      have assigned values (including undefined).
                     </p>
                     <p>
                       <strong>.filter()</strong> The filter() method creates a shallow copy of a portion of a given
                       array, filtered down to just the elements from the given array that pass the test implemented by
                       the provided function.
                       <br>
-                      filter() calls a provided callbackFn function once for each element in an array, and constructs a new array of all the values for which callbackFn returns a value that coerces to true. callbackFn is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values. Array elements which do not pass the callbackFn test are skipped, and are not included in the new array.
+                      filter() calls a provided callbackFn function once for each element in an array, and constructs a
+                      new array of all the values for which callbackFn returns a value that coerces to true. callbackFn
+                      is invoked only for indexes of the array which have assigned values; it is not invoked for indexes
+                      which have been deleted or which have never been assigned values. Array elements which do not pass
+                      the callbackFn test are skipped, and are not included in the new array.
                     </p>
                     <p>
-                      <strong>.find()</strong> The find() method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
+                      <strong>.find()</strong> The find() method returns the first element in the provided array that
+                      satisfies the provided testing function. If no values satisfy the testing function, undefined is
+                      returned.
                       <br>
-                      The find method executes the callbackFn function once for each index of the array until the callbackFn returns a truthy value. If so, find immediately returns the value of that element. Otherwise, find returns undefined.
+                      The find method executes the callbackFn function once for each index of the array until the
+                      callbackFn returns a truthy value. If so, find immediately returns the value of that element.
+                      Otherwise, find returns undefined.
                     </p>
                     <p>
-                      <strong>.forEach()</strong> forEach() calls a provided callbackFn function once for each element in an array in ascending index order. It is not invoked for index properties that have been deleted or are uninitialized.
+                      <strong>.forEach()</strong> forEach() calls a provided callbackFn function once for each element
+                      in an array in ascending index order. It is not invoked for index properties that have been
+                      deleted or are uninitialized.
                     </p>
 
                   </div>
@@ -192,7 +204,7 @@
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseFour">
-                    <strong>Why use  Template strings in ES6 Java Script?</strong>
+                    <strong>Why use Template strings in ES6 Java Script?</strong>
                   </button>
                 </h2>
                 <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
@@ -207,7 +219,8 @@
                     </p>
                     <p>
                       Basically write Template strings out, then at run time (when the backend get's ready to send a
-                      document back to the browser) the backend "compiles" the Template strings. To do this it simply finds all
+                      document back to the browser) the backend "compiles" the Template strings. To do this it simply
+                      finds all
                       the place holders (e.g. {{name}}) and replaces them with a variable (or something else depending
                       on the templating language). That's all. It's incredibly simple, but very very useful.
                     </p>
