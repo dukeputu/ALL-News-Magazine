@@ -101,17 +101,27 @@
                   <button class="accordion-button" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseOne">
-                    Accordion Item #1
+                    <strong>What is difference between 'var', 'let', 'const' ?</strong>
                   </button>
                 </h2>
                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                   aria-labelledby="panelsStayOpen-headingOne">
                   <div class="accordion-body">
-                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
-                    plugin adds the appropriate classes that we use to style each element. These classes control the
-                    overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of
-                    this with custom CSS or overriding our default variables. It's also worth noting that just about any
-                    HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    <p>
+                      <strong>Var:</strong>It allows the user to define <b>ONLY GLOBAL SCOPE VARIABLE</b> irrespective
+                      of the fact that where the variable has been defined.
+                    </p>
+                    <p>
+                      <strong>Let:</strong>It allows the user to define <b>BOTH GLOBAL/LOCAL SCOPE VARIABLE</b>. If you
+                      use <b> Let </b> in a function, then it means the user is defining a local variable but if the
+                      user is defining a variable with Let outside the function, then the user is defining a global
+                      variable.
+                    </p>
+                    <p>
+                      <strong>Const:</strong> It’s quite similar to <b>Let</b> with the only difference that once the
+                      variable has been defined then its value cannot be changed. Like if the user tries to change the
+                      value of the <b>const</b> variable, then they will get an error.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -120,18 +130,24 @@
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseTwo">
-                    Accordion Item #2
+                    <strong>What is difference between Arrow function=>{} and Normal function{} ?</strong>
                   </button>
                 </h2>
                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
                   aria-labelledby="panelsStayOpen-headingTwo">
                   <div class="accordion-body">
-                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the
-                    collapse plugin adds the appropriate classes that we use to style each element. These classes
-                    control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                    modify any of this with custom CSS or overriding our default variables. It's also worth noting that
-                    just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit
-                    overflow.
+                    <p>
+                      <strong>Arrow function:</strong>Arrow function is one of the features introduced in the ES6
+                      version of JavaScript. It allows you to create functions in a cleaner way compared to regular
+                      functions. For example, This function <br> // function expression <b>let x = function(x, y) {
+                        return x * y; }
+                      </b>
+                    </p>
+                    <p>
+                      <strong>Function:</strong>Functions are one of the fundamental building blocks in JavaScript. A
+                      function is a JavaScript procedure—a set of statements that performs a task or calculates a value.
+                      To use a function, you must define it somewhere in the scope from which you wish to call it.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -140,18 +156,34 @@
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseThree">
-                    Accordion Item #3
+                    <strong>What is difference between '.map' , '.filter' , '.find' , 'foreach' javascript ?</strong>
                   </button>
                 </h2>
                 <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
                   aria-labelledby="panelsStayOpen-headingThree">
                   <div class="accordion-body">
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
-                    collapse plugin adds the appropriate classes that we use to style each element. These classes
-                    control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                    modify any of this with custom CSS or overriding our default variables. It's also worth noting that
-                    just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit
-                    overflow.
+                    <p>
+                      <strong>.map()</strong> The map() method creates a new array populated with the results of calling
+                      a provided function on every element in the calling array.
+                      <br>
+                      map calls a provided callbackFn function once for each element in an array, in order, and constructs a new array from the results. callbackFn is invoked only for indexes of the array which have assigned values (including undefined).
+                    </p>
+                    <p>
+                      <strong>.filter()</strong> The filter() method creates a shallow copy of a portion of a given
+                      array, filtered down to just the elements from the given array that pass the test implemented by
+                      the provided function.
+                      <br>
+                      filter() calls a provided callbackFn function once for each element in an array, and constructs a new array of all the values for which callbackFn returns a value that coerces to true. callbackFn is invoked only for indexes of the array which have assigned values; it is not invoked for indexes which have been deleted or which have never been assigned values. Array elements which do not pass the callbackFn test are skipped, and are not included in the new array.
+                    </p>
+                    <p>
+                      <strong>.find()</strong> The find() method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
+                      <br>
+                      The find method executes the callbackFn function once for each index of the array until the callbackFn returns a truthy value. If so, find immediately returns the value of that element. Otherwise, find returns undefined.
+                    </p>
+                    <p>
+                      <strong>.forEach()</strong> forEach() calls a provided callbackFn function once for each element in an array in ascending index order. It is not invoked for index properties that have been deleted or are uninitialized.
+                    </p>
+
                   </div>
                 </div>
               </div>
@@ -160,18 +192,25 @@
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseFour">
-                    Accordion Item #4
+                    <strong>Why use  Template strings in ES6 Java Script?</strong>
                   </button>
                 </h2>
                 <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
                   aria-labelledby="panelsStayOpen-headingFour">
                   <div class="accordion-body">
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
-                    collapse plugin adds the appropriate classes that we use to style each element. These classes
-                    control the overall appearance, as well as the showing and hiding via CSS transitions. You can
-                    modify any of this with custom CSS or overriding our default variables. It's also worth noting that
-                    just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit
-                    overflow.
+                    <p>
+                      A Template strings is simply a way to turn static documents into dynamic ones.
+                      <br> We can tell the Backend to render any name we want. The backend could change the name based
+                      on input from a form, from the url, from a cookie, anything really. So it makes the documents able
+                      to work with a wider range of inputs.
+
+                    </p>
+                    <p>
+                      Basically write Template strings out, then at run time (when the backend get's ready to send a
+                      document back to the browser) the backend "compiles" the Template strings. To do this it simply finds all
+                      the place holders (e.g. {{name}}) and replaces them with a variable (or something else depending
+                      on the templating language). That's all. It's incredibly simple, but very very useful.
+                    </p>
                   </div>
                 </div>
               </div>
