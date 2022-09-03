@@ -50,11 +50,17 @@ const menuId = async (id, catagoryName) => {
 }
 
 const newsBloog = (blog, catagoryName) => {
-    // console.log(blog[0].total_view);
+    // console.log(blog);
+    //https://stackoverflow.com/questions/54623130/javascript-sort-an-array-of-objects-by-a-numeric-property-in-each-object
+    blog.sort((a, b) => b.total_view - a.total_view)
+    //https://stackoverflow.com/questions/54623130/javascript-sort-an-array-of-objects-by-a-numeric-property-in-each-object
+
+
 
 
     const itams = document.getElementById('itams')
     itams.innerText = blog.length;
+
 
     const catagoryNames = document.getElementById('category-name')
     catagoryNames.innerText = catagoryName;
@@ -72,18 +78,12 @@ const newsBloog = (blog, catagoryName) => {
     }
 
     blog.forEach((news) => {
-        // console.log(news.total_view);
-   /*      const sortable = Object.fromEntries(
-            Object.entries(news.total_view).sort(([,a],[,b]) => a-b)
-        );
-        
-        console.log(sortable); */
-
+        // console.log(news);
 
         const div = document.createElement('div');
-      
+
         const { thumbnail_url, title, details, author, total_view, _id, image_url } = news;
-            // const sort = total_view.sort
+        // const sort = total_view.sort
         div.classList.add('item');
 
         div.innerHTML = `
@@ -168,8 +168,7 @@ const modal = (data) => {
 
 }
 
-// loadAllProduct()
-// console.log()
+
 setAllMenu();
-// newsBloog();
+
 menuId('01', 'Breaking News');
