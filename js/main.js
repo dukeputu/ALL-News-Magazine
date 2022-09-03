@@ -1,10 +1,16 @@
 
 const loadAllProduct = async () => {
-    const res = await fetch('https://openapi.programming-hero.com/api/news/categories');
-    const data = await res.json();
-    const catagory = data.data.news_category;
-    // console.log(catagory);
-    return catagory;
+    try {
+        const res = await fetch('https://openapi.programming-hero.com/api/news/categories');
+        const data = await res.json();
+        const catagory = data.data.news_category;
+        // console.log(catagory);
+        return catagory;
+    }
+    catch (error) {
+        console.error(error);
+    }
+
 }
 
 const setAllMenu = async () => {
@@ -25,11 +31,16 @@ const setAllMenu = async () => {
 
 const menuId = async (id, catagoryName) => {
     // console.log("newsBloog",catagoryName);
-    //  console.log(id);
-    const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    newsBloog(data.data, catagoryName);
+    try{
+        const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        newsBloog(data.data, catagoryName);
+    
+    }
+    catch(error) {
+        console.log(error);
+    }
 
 }
 
@@ -42,19 +53,20 @@ const newsBloog = (blog, catagoryName) => {
     const newsid = document.getElementById('news');
     newsid.textContent = '';
     const notFound = document.getElementById('not-found');
-    notFound.textContent='';
+    notFound.textContent = '';
     if (blog.length === 0) {
         // console.log('foundP roducta');
         notFound.innerHTML = `<h2 class="text-center text-primary">Sorry No News</h2>`
         return;
     }
-    
+
     blog.forEach((news) => {
         // console.log(news);
 
         const div = document.createElement('div');
 
         const { thumbnail_url, title, details, author, total_view, _id, image_url } = news;
+
         div.classList.add('item');
         div.innerHTML = `
         <div class="utf_post_block_style utf_post_float_half clearfix">
@@ -64,8 +76,8 @@ const newsBloog = (blog, catagoryName) => {
         <div class="utf_post_content">
           <h2 class="utf_post_title"> <a href="#">${title}</a> </h2>
           <div class="utf_post_meta"> <span class="utf_post_author"><img class="img-fluid author-img" src="${author.img}"
-          alt="" /> <a href="#">${author.name}</a></span> <span class="utf_post_date"><i class="fa fa-clock-o"></i> ${author?.published_date.slice(0, 11)}</span> </br>
-          <div class="d-flex"> <span class="utf_post_date"><i class="fa fa-eye"></i> ${total_view}</span> 
+          alt="" /> <a href="#">${author.name === null ? 'No Data' : author.name}</a></span> <span class="utf_post_date"><i class="fa fa-clock-o"></i> ${author.published_date?.slice(0, 11)}</span> </br>
+          <div class="d-flex"> <span class="utf_post_date"><i class="fa fa-eye"></i> ${total_view === null ? 'No Data' : total_view}</span> 
           <ul class="d-flex ul-class">
           <li><i class="fa fa-star" aria-hidden="true"></i></li>
           <li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -90,11 +102,17 @@ const newsBloog = (blog, catagoryName) => {
 const showModal = async (ids) => {
     // console.log("newsBloog",catagoryName);
     //  console.log(id);
-    const url = `https://openapi.programming-hero.com/api/news/${ids}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    modal(data.data[0]);
-    // console.log(data.data[0].title);
+    try {
+        const url = `https://openapi.programming-hero.com/api/news/${ids}`;
+        const res = await fetch(url);
+        const data = await res.json();
+        modal(data.data[0]);
+        // console.log(data.data[0].title);
+    }
+    catch (error) {
+console.log(error);
+    }
+
 
 }
 
