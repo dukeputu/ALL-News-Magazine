@@ -1835,3 +1835,29 @@ ul.nav li.dropdown .utf_dropdown_menu li.utf_dropdown_submenu:hover .utf_dropdow
 	}
 	}
 	
+	.top-link{
+		justify-content: space-evenly;
+		align-items: center;
+	}
+	.top-links{
+		margin-top: 40px;
+	}
+	.top-links a{
+		font-size: 18px;
+		font-weight: 600;
+	}
+	.top-links img{
+		box-shadow: 0px 2px 10px 2px rgb(255 0 0 / 40%);
+	}
+
+	.form-select{
+		display: inline-block;
+		width: unset;
+	}
+
+	@media (max-width: 690px) {
+		.utf_block_title {
+			font-size: 10px;
+			
+		}
+	}
