@@ -37,6 +37,8 @@ const newsBloog = (blog, catagoryName) => {
     // console.log(blog.length);
     const itams = document.getElementById('itams')
     itams.innerText = blog.length;
+    const catagoryNames = document.getElementById('category-name')
+    catagoryNames.innerText = catagoryName;
     const newsid = document.getElementById('news');
     newsid.textContent = '';
     const notFound = document.getElementById('not-found');
