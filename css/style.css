@@ -44,6 +44,15 @@ h5 {
 .alert .icon {
 	margin-right: 15px;
 }
+ul{
+	list-style: none;
+
+}
+.ul-class{
+	margin: 0;
+    padding: 0;
+	margin-top: 8px;
+}
 /* Global styles
 ================================================== */
 
@@ -1429,3 +1438,9 @@ ul.nav li.dropdown .utf_dropdown_menu li.utf_dropdown_submenu:hover .utf_dropdow
 .fa-eye{
 	margin-top: 10px;
 }
+
+.fa-star, .fa-star-half-o{
+	margin-right: 5px;
+	color: #ec0000;
+}
+
