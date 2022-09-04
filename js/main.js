@@ -100,7 +100,7 @@ const newsBloog = (blog, catagoryName) => {
         <div class="utf_post_content">
             <h2 class="utf_post_title"> <a href="#">${title}</a> </h2>
             <div class="utf_post_meta"> <span class="utf_post_author"><img class="img-fluid author-img" src="${author.img}"
-            alt="" /> <a href="#">${author.name === null ? 'No Data' : author.name}</a></span> <span class="utf_post_date"><i class="fa fa-clock-o"></i> ${author.published_date?.slice(0, 11)}</span> </br>
+            alt="" /> <a href="#">${author.name === "" || author.name === null ? 'No Data' : author.name}</a></span> <span class="utf_post_date"><i class="fa fa-clock-o"></i> ${author.published_date === null || author.published_date === "" ? 'No Data' : author.published_date.slice(0, 11) }</span> </br>
             <div class="d-flex"> <span class="utf_post_date"><i class="fa fa-eye"></i> ${total_view === null ? 'No Data' : total_view}</span> 
             <ul class="d-flex ul-class">
             <li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -128,7 +128,7 @@ const newsBloog = (blog, catagoryName) => {
 // show modal dialog onclick="showModal('${_id}')"
 const showModal = async (ids) => {
     // console.log("newsBloog",catagoryName);
-    //  console.log(id);
+    //  console.log(ids);
     try {
         const url = `https://openapi.programming-hero.com/api/news/${ids}`;
         const res = await fetch(url);
